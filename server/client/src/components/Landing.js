@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
-
-import Navbar from './Navbar';
+import React, { Component } from "react";
 
 class Landing extends Component {
   render() {
-    return <div>Landing</div>;
+    return (
+      <div>
+        <p>Landing</p>
+      </div>
+    );
   }
 }
 

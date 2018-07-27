@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-
-import Navbar from './Navbar';
+import React, { Component } from "react";
 
 class Dashboard extends Component {
   render() {
