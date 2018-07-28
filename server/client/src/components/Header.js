@@ -1,6 +1,30 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class Header extends Component {
+  renderContent() {
+    console.log(this.props.auth);
+    switch (this.props.auth) {
+      case null:
+        return (
+          <a className="nav-link">
+            Signing in... <span className="sr-only">(current)</span>
+          </a>
+        );
+      case false:
+        return (
+          <a className="nav-link" href="/auth/google">
+            Sign in with Google <span className="sr-only">(current)</span>
+          </a>
+        );
+      default:
+        return (
+          <a className="nav-link" href="/api/logout">
+            Logout <span className="sr-only">(current)</span>
+          </a>
+        );
+    }
+  }
   render() {
     return (
       <div>
@@ -22,11 +46,7 @@ class Header extends Component {
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <a className="nav-link" href="/auth/google">
-                  Sign in with Google <span className="sr-only">(current)</span>
-                </a>
-              </li>
+              <li className="nav-item">{this.renderContent()}</li>
             </ul>
           </div>
         </nav>
@@ -35,4 +55,8 @@ class Header extends Component {
   }
 }
 
-export default Header;
+function mapStateToProps(state) {
+  return { auth: state.auth };
+}
+
+export default connect(mapStateToProps)(Header);
