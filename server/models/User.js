@@ -8,4 +8,4 @@ const userSchema = new Schema({
   }
 });
 
-mongoose.model('users', userSchema);
+mongoose.model('user', userSchema);
