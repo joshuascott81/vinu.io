@@ -1,11 +1,11 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // Create Schema
 const ProfileSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'User'
+    ref: "User"
   },
   handle: {
     type: String,
@@ -17,13 +17,14 @@ const ProfileSchema = new Schema({
     type: String
   },
   websites: {
-    type: [String]
+    type: String
   },
   bio: {
     type: String
   },
-  youtubeUrl: {
-    type: String
+  live: {
+    type: Boolean,
+    default: True
   },
   date: {
     type: Date,
@@ -31,4 +32,4 @@ const ProfileSchema = new Schema({
   }
 });
 
-module.exports = Profile = mongoose.model('profile', ProfileSchema);
+module.exports = Profile = mongoose.model("profile", ProfileSchema);
