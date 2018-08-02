@@ -1,16 +1,16 @@
-const requireLogin = require("../middleware/requireLogin");
+const requireLogin = require('../middleware/requireLogin');
 
 // @route GET api/profile
 // @desc Get current user's profile
 // @access Private
 module.exports = app => {
-  app.get("/api/profile", (req, res) => {
+  app.get('/api/profile', (req, res) => {
     const errors = {};
 
     Profile.findOne({ user: req.user.id })
       .then(profile => {
         if (!profile) {
-          errors.noProfile = "There is no profile for this user";
+          errors.noProfile = 'There is no profile for this user';
           res.status(404).json(errors);
         }
         res.json(profile);
@@ -21,8 +21,9 @@ module.exports = app => {
   // @route GET api/profile
   // @desc Create or edit current user's profile
   // @access Private
-  app.post("/api/profile", (req, res) => {
-    res.json({ here: "here" });
+  app.post('/api/profile', (req, res) => {
+    console.log('profile route');
+    res.json(req.user);
     // const { errors, isValid } = validateProfileInput(req.body);
 
     // // Check validation
