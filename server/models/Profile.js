@@ -13,17 +13,19 @@ const ProfileSchema = new Schema({
     min: 4,
     max: 20
   },
-  brandName: {
+  brand: {
     type: String
   },
   websites: {
-    type: [String]
+    type: String
   },
   bio: {
     type: String
   },
-  youtubeUrl: {
-    type: String
+  live: {
+    type: Boolean,
+    required: true,
+    default: True
   },
   date: {
     type: Date,
